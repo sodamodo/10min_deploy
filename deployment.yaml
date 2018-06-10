@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nodejs-test
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        name: nodejs-test
+    spec:
+      containers:
+        - name: nodejs-test
+          image: gcr.io/node-js-test-206819/nodejs-test
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
